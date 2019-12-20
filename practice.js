@@ -27,6 +27,11 @@
   Then invoke the callback function, passing in the first element in the array as it's argument.
 */
 
+function first(array, cb){
+return cb(array[0])
+}
+
+
 // Code Here 
 
 // Do not edit the code below.
@@ -47,6 +52,9 @@ first(names, function(firstName){
   Then invoke the callback, passing in the last element in the array as the argument.
 */
 
+function last(array, cb){
+  return cb(array[array.length - 1])
+}
 //Code Here
 
 // Do not edit the code below.
@@ -65,6 +73,9 @@ last(names, function(lastName){
   Invoke the callback, passing in the product of the two numbers multiplied as the argument. 
 */
 
+function multiply(num1, num2, cb){
+  return cb(num1 * num2)
+}
 //Code Here
 
 // Do not edit the code below.
@@ -83,6 +94,15 @@ multiply(4, 3, function(answer){
   If it does, invoke the callback with true as the argument. 
   If the name does not exist, invoke the callback with false as the argument.
 */
+
+function contains(array, name, cb){
+  let count = array.length
+  for(let i = 0; i < count; i++){
+    if (array[i]===name){return cb(true)}
+    }
+    return cb(false)
+  }
+
 
 //Code Here 
 
@@ -105,6 +125,16 @@ contains(names, 'Colt', function(result){
   Remove any duplicate values from the array, and invoke the callback with the modified array as an argument.
 */
 
+function uniq(array, cb){
+  for(let i = 0; i < array.length; i++){
+    for(let d = 0; d < array.length; d++){
+      if(array[i]===array[d] && i!==d){
+        array.splice(d,1)
+      }
+    }
+  }
+  return cb(array)
+}
 //Code Here
 
 // Do not edit the code below.
@@ -121,6 +151,12 @@ uniq(names, function(uniqArr){
   Write a function called each that takes in an array of names and a callback function. 
   For each name in the array, invoke the callback and pass in the name and the name's index as arguments.
 */
+
+function each(array, cb){
+  for(let i = 0; i < array.length; i++){
+    cb(array[i], i)
+  }
+}
 
 //Code Here 
 
@@ -139,6 +175,13 @@ each(names, function(item, indice){
   When the correct user object is found, invoke the callback with the user object as an argument.
 */
 
+function getUserById(users, id, cb){
+  for(let i = 0; i < users.length; i++){
+    if(users[i]===id){
+    }
+    cb(users[i])
+  }
+}
 // Code here
 
 // Do not edit the code below.
